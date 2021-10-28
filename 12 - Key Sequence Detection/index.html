@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+  <script>
+    let pressed = '';
+    const cheatcode = 'abc123';
+    const codeRegex = new RegExp(cheatcode);
+
+    window.addEventListener('keyup', (e) => {
+      pressed += e.key;
+      pressed = pressed.slice(-cheatcode.length, pressed.length);
+      if (pressed.match(codeRegex)) {
+        console.log("Secret unlocked!");
+        cornify_add();
+      }
+    })
+  </script>
+</body>
+</html>
